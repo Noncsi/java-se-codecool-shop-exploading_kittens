@@ -15,9 +15,25 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class Main {
 
+    private static final Logger logger = LoggerFactory.getLogger(Main.class);
+
     public static void main(String[] args) {
+
+        //Logger
+
+        logger.info("I am informative!");
+        ProductCategory category = new ProductCategory("Laptops", "department", "category description");
+        Supplier supplier = new Supplier("Dell", "supplier description");
+        Product product = new Product("Dell laptop zx6", 1, "EUR", "product description", category, supplier, "product-pics");
+        product.setPrice(10, "EUR");
+        product.setProductCategory(category);
+        product.setSupplier(supplier);
+        product.toString();
 
         // default server settings
         exception(Exception.class, (e, req, res) -> e.printStackTrace());
