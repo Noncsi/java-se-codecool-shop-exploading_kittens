@@ -24,24 +24,15 @@ public class Main {
 
     public static void main(String[] args) {
 
-        //Logger
-
-        logger.info("I am informative!");
-        ProductCategory category = new ProductCategory("Laptops", "department", "category description");
-        Supplier supplier = new Supplier("Dell", "supplier description");
-        Product product = new Product("Dell laptop zx6", 1, "EUR", "product description", category, supplier, "product-pics");
-        product.setPrice(10, "EUR");
-        product.setProductCategory(category);
-        product.setSupplier(supplier);
-        product.toString();
-
         // default server settings
         exception(Exception.class, (e, req, res) -> e.printStackTrace());
         staticFileLocation("/public");
         port(8888);
+        logger.warn("You have to open your localhost with the port:8888");
 
         // populate some data for the memory storage
         populateData();
+
 
         // Always start with more specific routes
         get("/hello", (req, res) -> "Hello World");
@@ -49,7 +40,9 @@ public class Main {
         // Always add generic routes to the end
         get("/", ProductController::renderHomePage, new ThymeleafTemplateEngine());
         // Equivalent with above
+        logger.trace("Homepage has been loaded.");
         get("/index", (Request req, Response res) -> {
+            logger.trace("Homepage has been loaded.");
            return new ThymeleafTemplateEngine().render( ProductController.renderHomePage(req, res) );
         });
 
@@ -80,6 +73,7 @@ public class Main {
 
         get("/get_products", (Request req, Response res) -> {
             ProductDaoMem productDaoMem = ProductDaoMem.getInstance();
+            logger.trace("Products have been returned.");
             return productDaoMem.getAllProductsJSON();
         });
 
@@ -91,12 +85,13 @@ public class Main {
         get("/addToCart/:id", (Request req, Response res) -> {
             ProductDao productDataStore = ProductDaoJdbc.getInstance();
             OrderDaoMem.getInstance().add(productDataStore.find(Integer.parseInt(req.params(":id"))), 1);
-            System.out.println(req.params(":id"));
+            logger.trace("Product with the id:" + req.params(":id") + " has been added to cart.");
             return new ThymeleafTemplateEngine().render( ProductController.renderHomePage(req, res) );
         });
 
         get("/remove_from_cart/:id", (Request req, Response res) -> {
             OrderDaoMem.getInstance().remove((Integer.parseInt(req.params(":id"))));
+            logger.trace("Product with the id:" + req.params(":id") + " has been removed from cart.");
             return new ThymeleafTemplateEngine().render( ProductController.renderHomePage(req, res) );
         });
 
@@ -114,14 +109,17 @@ public class Main {
         Supplier getSadCat = new Supplier("GetSadCat", "Cat shelter");
         supplierDataStore.add(getSadCat);
         logger.info("New supplier called '" + getSadCat.getName() + "' have been added.");
+
         getSadCat = supplierDataStore.find(getSadCat.getName());
         Supplier tamil = new Supplier("Tamil Nadu Industrial", "Explosives");
         supplierDataStore.add(tamil);
         logger.info("New supplier called '" + tamil.getName() + "' have been added.");
+
         tamil = supplierDataStore.find(tamil.getName());
         Supplier sparkIndustries = new Supplier("Spark Industries", "Explosives");
         supplierDataStore.add(sparkIndustries);
         logger.info("New supplier called '" + sparkIndustries.getName() + "' have been added.");
+
         sparkIndustries = supplierDataStore.find(sparkIndustries.getName());
 
 
