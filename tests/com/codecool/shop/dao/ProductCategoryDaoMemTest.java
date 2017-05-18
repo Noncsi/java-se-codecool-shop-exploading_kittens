@@ -1,13 +1,17 @@
 package com.codecool.shop.dao;
 
+import com.codecool.shop.dao.implementation.OrderDaoMem;
 import com.codecool.shop.dao.implementation.ProductCategoryDaoMem;
 import com.codecool.shop.dao.implementation.ProductDaoMem;
 import com.codecool.shop.model.Product;
 import com.codecool.shop.model.ProductCategory;
 import com.codecool.shop.model.Supplier;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.List;
+import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -16,16 +20,22 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 class ProductCategoryDaoMemTest {
 
-    @Test
-    public void testProductsAreExist(){
-        ProductCategoryDao test = ProductCategoryDaoMem.getInstance();
+    static Stream<ProductCategoryDao> daoProvider() {
+        return Stream.of(ProductCategoryDaoMem.getInstance());
+    }
+
+    @ParameterizedTest
+    @MethodSource(names = "daoProvider")
+    public void testProductsAreExist(ProductCategoryDao test) {
+        //ProductCategoryDao test = ProductCategoryDaoMem.getInstance();
         List categories = test.getAll();
         assertNotNull(categories);
     }
 
-    @Test
-    public void testIsIDBiggerThan0() {
-        ProductCategoryDaoMem test = ProductCategoryDaoMem.getInstance();
+    @ParameterizedTest
+    @MethodSource(names = "daoProvider")
+    public void testIsIDBiggerThan0(ProductCategoryDao test) {
+        //ProductCategoryDaoMem test = ProductCategoryDaoMem.getInstance();
         assertThrows(IllegalArgumentException.class,()-> {
             test.find(-10);
         });

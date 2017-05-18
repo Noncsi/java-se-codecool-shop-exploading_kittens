@@ -113,12 +113,15 @@ public class Main {
         //setting up new suppliers
         Supplier getSadCat = new Supplier("GetSadCat", "Cat shelter");
         supplierDataStore.add(getSadCat);
+        logger.info("New supplier called '" + getSadCat.getName() + "' have been added.");
         getSadCat = supplierDataStore.find(getSadCat.getName());
         Supplier tamil = new Supplier("Tamil Nadu Industrial", "Explosives");
         supplierDataStore.add(tamil);
+        logger.info("New supplier called '" + tamil.getName() + "' have been added.");
         tamil = supplierDataStore.find(tamil.getName());
         Supplier sparkIndustries = new Supplier("Spark Industries", "Explosives");
         supplierDataStore.add(sparkIndustries);
+        logger.info("New supplier called '" + sparkIndustries.getName() + "' have been added.");
         sparkIndustries = supplierDataStore.find(sparkIndustries.getName());
 
 
@@ -127,22 +130,54 @@ public class Main {
         ProductCategory explosives = new ProductCategory("Explosives", "War stuff", "asd");
         productCategoryDataStore.add(cat);
         productCategoryDataStore.add(explosives);
+        logger.info("New category called '" + cat.getName() + "' have been added.");
+        logger.info("New category called '" + explosives.getName() + "' have been added.");
         cat = productCategoryDataStore.find(cat.getName());
         System.out.println(cat.getId());
         explosives = productCategoryDataStore.find(explosives.getName());
 
         //setting up products and printing it
-        productDataStore.add(new Product("Transcendence cat", 21, "EUR", "wut", cat, getSadCat, "trans-cat.gif"));
-        productDataStore.add(new Product("B61 nuclear bomb", 965, "USD", "BOMMM", explosives, sparkIndustries, "product_6.jpg"));
-        productDataStore.add(new Product("Fluffy", 49, "USD", "When you did not read the terms of Apple and conditions and it said u would turn into a cat and you like WTF but it is too late you are a cat now", cat, getSadCat, "product_1.jpg"));
-        productDataStore.add(new Product("Winchester 760 gunpowder", 479, "EUR", "From China", explosives, tamil, "product_2.jpg"));
-        productDataStore.add(new Product("Pawny", 89, "USD", "Meow.", cat, getSadCat, "product_3.jpg"));
-        productDataStore.add(new Product("Soviet Union 9K38 Igla ", 89, "USD", "You can see this usually in Russian fail videos", explosives, sparkIndustries, "product_4.jpg"));
-        productDataStore.add(new Product("TNT of Tom", 21, "EUR", "", explosives, tamil, "tom.gif"));
-        productDataStore.add(new Product("Nicolas Cate", 89, "USD", "Purrfect for acting", cat, getSadCat, "product_5.jpg"));
-        productDataStore.add(new Product("Grumpy cat", 63, "USD", "No", cat, getSadCat, "product_7.jpg"));
-        productDataStore.add(new Product("BOMB Petard bomb", 89, "EUR", "No, it is not cool if you throw this at people on New Year`s Eve.", explosives, tamil, "product_8.jpg"));
+        Product transCat = new Product("Transcendence cat", 21, "EUR", "wut", cat, getSadCat, "trans-cat.gif");
+        productDataStore.add(transCat);
+        logger.info("New product called '" + transCat.getName() + "' have been added.");
+
+        Product nuclBomb = new Product("B61 nuclear bomb", 965, "USD", "BOMMM", explosives, sparkIndustries, "product_6.jpg");
+        productDataStore.add(nuclBomb);
+        logger.info("New product called '" + nuclBomb.getName() + "' have been added.");
+
+        Product fluffy = new Product("Fluffy", 49, "USD", "When you did not read the terms of Apple and conditions and it said u would turn into a cat and you like WTF but it is too late you are a cat now", cat, getSadCat, "product_1.jpg");
+        productDataStore.add(fluffy);
+        logger.info("New product called '" + fluffy.getName() + "' have been added.");
+
+        Product gunpowder = new Product("Winchester 760 gunpowder", 479, "EUR", "From China", explosives, tamil, "product_2.jpg");
+        productDataStore.add(gunpowder);
+        logger.info("New product called '" + gunpowder.getName() + "' have been added.");
+
+        Product pawny = new Product("Pawny", 89, "USD", "Meow.", cat, getSadCat, "product_3.jpg");
+        productDataStore.add(pawny);
+        logger.info("New product called '" + pawny.getName() + "' have been added.");
+
+        Product igla = new Product("Soviet Union 9K38 Igla ", 89, "USD", "You can see this usually in Russian fail videos", explosives, sparkIndustries, "product_4.jpg");
+        productDataStore.add(igla);
+        logger.info("New product called '" + igla.getName() + "' have been added.");
+
+        Product tnt = new Product("TNT of Tom", 21, "EUR", "", explosives, tamil, "tom.gif");
+        productDataStore.add(tnt);
+        logger.info("New product called '" + tnt.getName() + "' have been added.");
+
+        Product nicolas = new Product("Nicolas Cate", 89, "USD", "Purrfect for acting", cat, getSadCat, "product_5.jpg");
+        productDataStore.add(nicolas);
+        logger.info("New product called '" + nicolas.getName() + "' have been added.");
+
+        Product grumpyCat = new Product("Grumpy cat", 63, "USD", "No", cat, getSadCat, "product_7.jpg");
+        productDataStore.add(grumpyCat);
+        logger.info("New product called '" + grumpyCat.getName() + "' have been added.");
+
+        Product petard = new Product("BOMB Petard bomb", 89, "EUR", "No, it is not cool if you throw this at people on New Year`s Eve.", explosives, tamil, "product_8.jpg");
+        productDataStore.add(petard);
+        logger.info("New product called '" + explosives.getName() + "' have been added.");
     }
+
 
 
 

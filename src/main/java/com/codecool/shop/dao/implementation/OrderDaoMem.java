@@ -44,6 +44,9 @@ public class OrderDaoMem implements OrderDao {
 
     @Override
     public LineItem find(int id) {
+        if (id <= 0) {
+            throw new IllegalArgumentException("id must be bigger or equal with 0.");
+        }
         return DATA.stream().filter(t -> t.getId() == id).findFirst().orElse(null);
     }
 

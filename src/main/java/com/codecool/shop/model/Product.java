@@ -49,7 +49,6 @@ public class Product extends BaseModel {
     public void setPrice(float price, String currency) {
         this.defaultPrice = price;
         this.defaultCurrency = Currency.getInstance(currency);
-        logger.info("Default price is set to " + defaultPrice + ", and default currency is set to " + defaultCurrency);
     }
 
     public ProductCategory getProductCategory() {
@@ -59,8 +58,6 @@ public class Product extends BaseModel {
     public void setProductCategory(ProductCategory productCategory) {
         this.productCategory = productCategory;
         this.productCategory.addProduct(this);
-        logger.info("New product category called '" + productCategory.name + "' have been added.");
-
     }
 
     public Supplier getSupplier() {
@@ -70,12 +67,10 @@ public class Product extends BaseModel {
     public void setSupplier(Supplier supplier) {
         this.supplier = supplier;
 //        this.supplier.addProduct(this);
-        logger.info("New supplier called '" + supplier.name + "' have been added.");
     }
 
     @Override
     public String toString() {
-        logger.info("New product's id: " + this.id + ", name: " + this.name + ", price: " + this.defaultPrice + ", currency: " + this.defaultCurrency + ", category: " + this.productCategory + ", supplier: " + this.supplier);
         return String.format("id: %1$d, " +
                         "name: %2$s, " +
                         "defaultPrice: %3$f, " +
