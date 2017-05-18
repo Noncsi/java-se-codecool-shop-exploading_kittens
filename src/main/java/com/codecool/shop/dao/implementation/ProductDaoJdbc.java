@@ -50,6 +50,9 @@ public class ProductDaoJdbc implements ProductDao {
     }
 
     @Override
+    /**
+     * Finds the data by its ID.
+     */
     public Product find(int id) {
         String query = "SELECT * FROM product " +
                 "WHERE id =" + String.valueOf(id) + ";";

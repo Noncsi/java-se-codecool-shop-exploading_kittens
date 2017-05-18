@@ -3,6 +3,9 @@ package com.codecool.shop.model;
 import java.util.ArrayList;
 import java.util.Currency;
 
+/**
+ * Products are the items you can buy.
+ */
 public class Product extends BaseModel {
 
     private float defaultPrice;
@@ -90,6 +93,9 @@ public class Product extends BaseModel {
         return pic;
     }
 
+    /**
+     * Converts USD and EUR to HUF
+     */
     public float getHUFPrice() {
         if (defaultCurrency == Currency.getInstance("HUF")){
             return defaultPrice;

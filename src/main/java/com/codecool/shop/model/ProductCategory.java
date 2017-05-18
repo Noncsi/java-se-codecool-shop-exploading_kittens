@@ -2,6 +2,9 @@ package com.codecool.shop.model;
 
 import java.util.ArrayList;
 
+/**
+ * Every Product has a category, which you can categorized by.
+ */
 public class ProductCategory extends BaseModel {
     private String department;
     private ArrayList<Product> products;

@@ -6,6 +6,9 @@ import java.util.Map;
 /**
  * Created by davidkulchar on 2017.04.26..
  */
+/**
+ * Here are your products you want to buy.
+ */
 public class ShoppingCart extends ShopList {
 
     public Map generatePaymentDetails() {

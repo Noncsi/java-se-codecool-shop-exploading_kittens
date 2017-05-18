@@ -8,6 +8,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Inteface of ProductDaoJdbc and ProductDaoMem class
+ */
 public interface ProductDao {
 
     void add(Product product);

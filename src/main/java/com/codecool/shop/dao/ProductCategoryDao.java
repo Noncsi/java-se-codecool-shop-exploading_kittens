@@ -4,6 +4,9 @@ import com.codecool.shop.model.ProductCategory;
 
 import java.util.List;
 
+/**
+ * Inteface of ProductCategoryDaoJdbc andProductCategoryDaoMem class
+ */
 public interface ProductCategoryDao {
 
     void add(ProductCategory category);

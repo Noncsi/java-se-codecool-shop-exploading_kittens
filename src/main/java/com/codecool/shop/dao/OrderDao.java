@@ -11,6 +11,9 @@ import java.util.Map;
 /**
  * Created by davidkulchar on 2017.04.26..
  */
+/**
+ * Inteface of OrderDaoMem class
+ */
 public interface OrderDao {
     void add(Product product, int quantity);
     LineItem find(int id);

@@ -40,6 +40,9 @@ public class ProductCategoryDaoJdbc implements ProductCategoryDao {
     }
 
     @Override
+    /**
+     * Finds the data by its ID.
+     */
     public ProductCategory find(int id) {
         String query = "SELECT * FROM product_category " +
                 "WHERE id ='" + String.valueOf(id) + "';";

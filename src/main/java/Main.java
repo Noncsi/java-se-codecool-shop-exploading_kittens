@@ -17,6 +17,9 @@ import java.util.Map;
 
 public class Main {
 
+    /**
+     * Here are the routes of the web
+     */
     public static void main(String[] args) {
 
         // default server settings
@@ -88,6 +91,9 @@ public class Main {
         enableDebugScreen();
     }
 
+    /**
+     * Fills the database with these data when the server starts
+     */
     public static void populateData() {
 
         ProductDao productDataStore = ProductDaoJdbc.getInstance();

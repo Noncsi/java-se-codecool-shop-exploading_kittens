@@ -34,6 +34,9 @@ public class SupplierDaoMem implements SupplierDao {
     }
 
     @Override
+    /**
+     * Finds the data by its ID.
+     */
     public Supplier find(int id) {
         return DATA.stream().filter(t -> t.getId() == id).findFirst().orElse(null);
     }

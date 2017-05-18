@@ -5,6 +5,7 @@ import java.util.ArrayList;
 /**
  * Created by davidkulchar on 2017.04.26..
  */
+
 public abstract class ShopList{
     private ArrayList<Product> products = new ArrayList<>();
 

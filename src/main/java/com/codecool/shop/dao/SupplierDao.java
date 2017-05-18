@@ -4,6 +4,9 @@ import com.codecool.shop.model.Supplier;
 
 import java.util.List;
 
+/**
+ * Inteface of SupplierDaoJdbc and SupplierDaoMem class
+ */
 public interface SupplierDao {
 
     void add(Supplier supplier);

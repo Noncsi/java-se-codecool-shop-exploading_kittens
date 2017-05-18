@@ -2,7 +2,9 @@ package com.codecool.shop.model;
 
 import java.util.ArrayList;
 
-
+/**
+ * Every product has a supplier, where the product was make.
+ */
 public class Supplier extends BaseModel {
     private ArrayList<Product> products;
 
